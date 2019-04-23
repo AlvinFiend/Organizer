@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet" />
+    <link href="../static/css/main.css" th:href="@{css/main.css}" rel="stylesheet"/>
+    <link href="../static/css/starter.css" th:href="@{css/starter.css}" rel="stylesheet"/>
+
+    <meta charset="UTF-8">
+    <title>Result Task | Organizer</title>
+</head>
+<body>
+<header>
+    <div class="container" style="display: flex;">
+        <h1>Organizer</h1>
+        <div style="display: flex; margin-left: 100px;">
+            <input class="button" style="width: 200px; margin-left: 50px;" type="button" name="menu" value="Menu" onclick="location.href='/index'"/>
+            <input class="button" style="width: 200px; margin-left: 50px;" type="button" name="addTask" value="Add Task" onclick="location.href='/add'" />
+        </div>
+    </div>
+</header>
+<section style="margin-top: -100px;">
+    <div class="container" style="height: 400px;">
+        <ul>
+            <li class="result" style="font-size: 20px; color: #ffd100;">
+                <label th:field="*{title}" th:text="'Title: ' + ${task.title}">title</label>
+            </li>
+            <li class="result">
+                <label th:field="*{date}" th:text="'Date: ' + ${task.date}">date</label>
+            </li>
+            <li class="result">
+                <label th:field="*{description}" th:text="'Description: ' + ${task.description}">description</label>
+            </li>
+        </ul>
+    </div>
+</section>
+</body>
+</html>

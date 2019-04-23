@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{css/main.css}" rel="stylesheet"/>
+    <link href="../static/css/starter.css" th:href="@{css/starter.css}" rel="stylesheet"/>
+
+    <meta charset="UTF-8">
+    <title>Task List | Organizer</title>
+</head>
+<body>
+<header>
+    <div class="container" style="display: flex;">
+        <h1>Organizer</h1>
+        <div style="display: flex; margin-left: 100px;">
+            <input class="button" style="width: 200px;" type="button" name="back" value="Menu"
+                   onclick="location.href='/index'"/>
+        </div>
+    </div>
+</header>
+<section style="margin-top: -100px;">
+    <div class="container" style="min-height: 400px; padding-bottom: 50px;">
+        <table>
+            <thead class="task-item">
+            <tr>
+                <th> Title </th>
+                <th> Date </th>
+                <th> Description </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${tasks.empty}">
+                <td colspan="3"> No Task Available </td>
+            </tr>
+            <tr th:each="task : ${tasks}">
+                <td><span th:text="${task.title}"> Title </span></td>
+                <td><span th:text="${task.date}"> Date </span></td>
+                <td><span th:text="${task.description}"> Description </span></td>
+                <td style="background: none;">
+                    <a th:href="@{remove_task/__${task.id}__}"><img src="https://img.icons8.com/color/48/000000/trash.png"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>

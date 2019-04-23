@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{css/main.css}" rel="stylesheet"/>
+    <link href="../static/css/starter.css" th:href="@{css/starter.css}" rel="stylesheet"/>
+
+    <meta charset="UTF-8">
+    <title>Add Task | Organizer</title>
+</head>
+<body>
+<form action="#" th:action="@{/add}" th:object="${task}" method="post">
+    <header>
+        <div class="container" style="display: flex;">
+            <h1>Organizer</h1>
+            <div style="display: flex; margin-left: 100px;">
+                <input class="button" style="width: 200px;" type="submit" value="Submit"/>
+                <input class="button" style="width: 200px; margin-left: 50px;" type="reset" value="Reset"/>
+                <input class="button" style="width: 200px; margin-left: 50px;" type="button" name="back" value="Menu"
+                       onclick="location.href='/index'"/>
+            </div>
+        </div>
+    </header>
+    <section style="margin-top: -100px;">
+        <div class="container" style="height: 400px;">
+            <ul>
+                <li style="display: flex;">
+                    <input type="text" th:field="*{title}" placeholder="Title" />
+                    <input type="text" th:field="*{date}" placeholder="Date" />
+                </li>
+                <li>
+                    <input type="text" th:field="*{description}" placeholder="Description"/>
+                </li>
+            </ul>
+        </div>
+    </section>
+</form>
+</body>
+</html>

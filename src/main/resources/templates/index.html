@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{css/main.css}" rel="stylesheet"/>
+    <link href="../static/css/starter.css" th:href="@{css/starter.css}" rel="stylesheet"/>
+
+
+    <meta charset="UTF-8"/>
+
+    <title>Organizer</title>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Organizer</h1>
+    </div>
+</header>
+<section>
+    <div class="container">
+            <input class="button" type="button" name="add" value="Add Task" onclick="location.href='/add'"/>
+            <input class="button" type="button" name="list" value="Task List" onclick="location.href='/list'"/>
+            <input class="button" type="button" name="exit" value="Exit" id="close-window" />
+    </div>
+</section>
+<script type="text/javascript">
+    document.getElementById("close-window").addEventListener("click", function(){
+        window.open(this.window,'_self').close();
+    });
+</script>
+</body>
+</html>
